@@ -10,6 +10,7 @@ const DataCollection = () => {
     const [maxLengthReached, setMaxLengthReached] = useState(false);
     const [name, setName] = useState("");
     const [gender, setGender] = useState("");
+    const [loggedStatus, setLoggedStatus] =useState(false)
     const navigate = useNavigate();
 
     const handleNameChange = (event) => {
