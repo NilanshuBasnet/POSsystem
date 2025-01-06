@@ -1,33 +1,39 @@
-import React,{useState} from 'react'
+import React,{useState, useContext} from 'react'
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/login.png'
+import { UserContext } from '../context/UserContext'
 
 const DataCollection = () => {
 
+    const { setUserData } = useContext(UserContext);// Access context function
 
     const [maxLengthReached, setMaxLengthReached] = useState(false);
-
+    const [name, setName] = useState("");
+    const [gender, setGender] = useState("");
     const navigate = useNavigate();
+
+    const handleNameChange = (event) => {
+        setName(event.target.value);
+    };
+
+    const handleGenderChange = (event) => {
+        setGender(event.target.value);
+    };
 
     const handleMaxLength = (event) => {
         const value = event.target.value;
         setMaxLengthReached(value.length === 20);
     };
 
-    const handleContinue = ()=>{
-        let name = document.getElementById("userName").value.trim();
-        // Get the selected gender
-        const genderInput = document.querySelector('input[name="gender"]:checked');
-        let gender = genderInput ? genderInput.value : "not specified";
+    const handleContinue = () => {
+        const finalName = name.trim() ? name : 'Guest';
+        const finalGender = gender || 'Not specified';
+        // Update the context with the user's data
+        setUserData({ name: finalName, gender: finalGender });
 
-        if(!name){
-            name="Guest"
-        }
-        
-       // Navigate to dashboard with state
-       navigate('/dashboard', { state: { name, gender } });
-        
-    }
+        // Navigate to the dashboard
+        navigate('/dashboard');
+        };
     
 
   return (
@@ -41,15 +47,23 @@ const DataCollection = () => {
         <h1 className="text-3xl font-bold mt-2 mb-1" >Welcome Back</h1>
         <p className="text-gray-400">Welcome Back, Please enter your details</p>
 
-        <input id="userName" className="border border-gray-300 rounded-lg p-2 mb-1 mt-5 w-full" type="text" placeholder="Enter your Name" maxLength="20" onChange={handleMaxLength} /><br/>
+        <input 
+        id="userName" 
+        className="border border-gray-300 rounded-lg p-2 mb-1 mt-5 w-full" 
+        type="text" 
+        placeholder="Enter your Name" 
+        maxLength="20" 
+        onChange={(event) => {
+            handleNameChange(event);
+            handleMaxLength(event);}} /><br/>
         {maxLengthReached ? 
             (<p className="text-[#FF5733] text-sm text-left ml-2">Maximum length reached !</p>) : null
         }
 
         <div className="mb-4 mt-3 text-left">
-            <input type="radio" id="male" name="gender" value="male" className="mr-2"/>
+            <input type="radio" id="male" name="gender" value="male" className="mr-2" onChange={handleGenderChange}/>
             <label htmlFor="male">Male</label>
-            <input type="radio" id="female" name="gender" value="female" className="ml-4 mr-2"/>
+            <input type="radio" id="female" name="gender" value="female" className="ml-4 mr-2" onChange={handleGenderChange}/>
             <label htmlFor="female">Female</label>
         </div>
 

@@ -1,12 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
+import { UserContext } from '../context/UserContext'
 
 const TopBar = () => {
-  const location = useLocation();
-  const { name, gender } = location.state || {
-    name: "Guest",
-    gender: "not specified",
-  };
+  const { userData } = useContext(UserContext); // Access the context
+  const { name, gender } = userData;
 
   // Get the current date
   const currentDate = new Date();

@@ -6,7 +6,6 @@ import Menu from './Components/Menu'
 
 
 
-
 const App = () => {
   return (
     <div className="flex">
