@@ -10,12 +10,12 @@ const Menu = () => {
         <img className="h-full" src={logo}/>
       </div>
 
-      <div className="flex flex-col justify-center items-center h-auto mt-14">
+      <div className="flex flex-col justify-center items-center h-auto mt-14 gap-20">
       <Link to='/dashboard'>
-          <img className="invert h-7 mb-16" src="https://cdn-icons-png.flaticon.com/512/1828/1828765.png"/>
+          <img className="invert h-7" src="https://cdn-icons-png.flaticon.com/512/1828/1828765.png"/>
         </Link>
         <Link to='history'>
-          <img className="invert h-7 mb-16" src="https://cdn-icons-png.flaticon.com/512/2961/2961948.png"/>
+          <img className="invert h-7" src="https://cdn-icons-png.flaticon.com/512/2961/2961948.png"/>
         </Link>
         <Link to='settings'>
           <img className="invert h-7" src="https://cdn-icons-png.flaticon.com/512/3524/3524636.png"/>

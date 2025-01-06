@@ -18,7 +18,7 @@ const Dashboard = () => {
           <Cards name="Iced Coffee" img="https://cdn.pixabay.com/photo/2021/01/06/10/11/coffee-5893926_960_720.jpg" />
           
         </div>
-        <div className="w-1/4 bg-black text-white p-5">
+        <div className="border border-gr w-1/4 bg-white  p-5">
           <h1 className="text-lg"><b>Bill</b></h1>
           <hr class="border-t-2 border-dotted border-gray-400 my-4"/>
           <p>Total: </p>
