@@ -1,8 +1,11 @@
 import React from 'react'
+import TopBar from './TopBar'
 
 const Settings = () => {
   return (
-    <div className=" text-blue-600">Settings</div>
+    <>
+        <h1>Settings</h1>
+    </>
   )
 }
 

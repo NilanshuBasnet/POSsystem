@@ -1,6 +1,5 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import Menu from "./Menu";
 
 const TopBar = () => {
   const location = useLocation();
@@ -31,7 +30,7 @@ const TopBar = () => {
       : "https://cdn-icons-png.flaticon.com/512/2111/2111425.png"; //Github icon
 
   return (
-    <div className="flex justify-end text-right items-center bg-white h-[15vh] w-screen p-3 pr-7 shadow-[0px_4px_8px_rgba(0,0,0,0.3)]">
+    <div className="flex justify-end text-right items-center bg-white h-[15vh] w-full p-3 pr-7 shadow-[0px_4px_8px_rgba(0,0,0,0.3)]">
       <div className="mr-3">
         <h1 className="text-lg">
           <b>{name}</b>
