@@ -1,7 +1,9 @@
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom';
+import logo from '../assets/login.png'
 
 const DataCollection = () => {
+
 
     const [maxLengthReached, setMaxLengthReached] = useState(false);
 
@@ -9,7 +11,7 @@ const DataCollection = () => {
 
     const handleMaxLength = (event) => {
         const value = event.target.value;
-        setMaxLengthReached(value.length === 15);
+        setMaxLengthReached(value.length === 20);
     };
 
     const handleContinue = ()=>{
@@ -33,13 +35,13 @@ const DataCollection = () => {
     <div className="bg-white rounded-[10px] text-center w-auto p-8 border-2 border-slate-100 ">
         {/* //Logo */}
         <div className="flex justify-center items-center h-20 mb-5">
-            <img className="h-full" src ="https://cdn-user-icons.flaticon.com/15937/15937093/1735903446845.svg?token=exp=1735904347~hmac=a0b04666a7676dd10ca63d9ef8cb82fe"/>
+            <img className="h-full" src ={logo}/>
         </div>
         
         <h1 className="text-3xl font-bold mt-2 mb-1" >Welcome Back</h1>
         <p className="text-gray-400">Welcome Back, Please enter your details</p>
 
-        <input id="userName" className="border border-gray-300 rounded-lg p-2 mb-1 mt-5 w-full" type="text" placeholder="Enter your First Name" maxLength="15" onChange={handleMaxLength} /><br/>
+        <input id="userName" className="border border-gray-300 rounded-lg p-2 mb-1 mt-5 w-full" type="text" placeholder="Enter your Name" maxLength="20" onChange={handleMaxLength} /><br/>
         {maxLengthReached ? 
             (<p className="text-[#FF5733] text-sm text-left ml-2">Maximum length reached !</p>) : null
         }
