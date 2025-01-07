@@ -12,6 +12,15 @@ const Cards = (props) => {
     />
   </div>
   <h1 className="text-lg font-bold mt-3">{props.name}</h1>
+  <div className="text-sm">
+    <input className="align-middle" type="radio" name={`${props.name}size`} value="Regular"/>&nbsp;
+    <label>Regular</label><br/>
+    
+    <input className="align-middle" type="radio" name={`${props.name}size`} value="Large"/>&nbsp;
+    <label>Large</label>
+  <button className="text-white bg-blue-700 hover:bg-blue-600 mt-5 px-10 py-2 rounded-lg">Add</button>
+  </div>
+  
 </div>
   )
 }
