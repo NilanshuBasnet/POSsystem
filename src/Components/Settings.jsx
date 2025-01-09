@@ -1,7 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react'
 import TopBar from './TopBar'
 
 const Settings = () => {
+
+  // State to track connection status
+  const [isConnected, setIsConnected] = useState(false);
+
+  const handleScan = () => {
+    setIsConnected(!isConnected);
+  }
+
   return (
     <div className="h-screen p-7 bg-[#F9FAFC]">
         <h1 className="text-3xl"><b>Settings</b></h1>
@@ -20,8 +28,14 @@ const Settings = () => {
           <br/>
 
           <h2 className="text-lg"><b>Connectivity</b></h2>
-          <button className="text-white bg-blue-700 hover:bg-blue-600  px-10 py-2 rounded-lg">Scan</button>
-          <p className="text-sm mt-2"><b className="text-emerald-600">Connected:</b> coffee_POS_5G</p>
+          <button className="text-white bg-blue-700 hover:bg-blue-600  px-10 py-2 rounded-lg" onClick={handleScan}>Scan and Connect</button>
+          <p className="text-sm mt-2">
+            {isConnected ? (
+            <><b className="text-emerald-600">Connected: </b>coffee_POS_5G</>
+          ) : (
+            <b className="text-red-600">Disconnected!!</b>
+          )}
+          </p>
         </div>
     </div>
   )

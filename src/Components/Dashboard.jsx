@@ -4,7 +4,7 @@ import Cards from "./Cards";
 import { UserContext } from '../context/UserContext';
 
 const Dashboard = () => {
-  const {cart, clearCart} = useContext(UserContext);
+  const { cart, clearCart, addToHistory } = useContext(UserContext);
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
   // Handle charge button click
@@ -12,6 +12,18 @@ const Dashboard = () => {
     if (cart.length === 0) {
       alert("Cart is empty!");
     } else {
+      const currentDate = new Date();
+      const receiptNumber = `${currentDate.toISOString().replace(/[-:.TZ]/g, '')}`;
+
+      const purchase = {
+        receiptNumber,
+        date: currentDate.toLocaleDateString(),
+        time: currentDate.toLocaleTimeString(),
+        items: cart,
+        totalPrice,
+      };
+
+      addToHistory(purchase); // Add to history
       alert("Approved.");
       clearCart(); // Clear the cart
     }
