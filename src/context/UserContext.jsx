@@ -8,9 +8,21 @@ export const UserProvider = ({ children }) => {
       name: 'Guest',  // Default value
       gender: 'Not specified', // Default value
     });
+
+    // State for storing the cart data
+    const [cart, setCart] = useState([]);
+
+    // Function to add an item to the cart
+    const addToCart = (item) => {
+        setCart((prevCart) => [...prevCart, item]);
+    };
+    // Function to clear the cart
+    const clearCart = () => {
+      setCart([]); // Clears the cart
+    };
   
     return (
-      <UserContext.Provider value={{ userData, setUserData }}>
+      <UserContext.Provider value={{ userData, setUserData, cart, addToCart, clearCart }}>
         {children}
       </UserContext.Provider>
     );
