@@ -8,6 +8,7 @@ This is a simple Point of Sale (POS) system for order management. The applicatio
 It utilizes React for building a dynamic interface, React Router DOM for navigation, and Vite for a fast development environment.
 
 ---
+   ![image](https://github.com/user-attachments/assets/01a7ebcc-c3df-431f-b22b-b0485f8d9563)
 
 ## Features
 
@@ -16,6 +17,9 @@ It utilizes React for building a dynamic interface, React Router DOM for navigat
 - **Persistent Navigation**: A fixed navigation bar ensures seamless access to all pages.
 - **Settings**: A dedicated page for user or application settings.
 - **History**: A section for viewing historical data or transactions.
+
+![image](https://github.com/user-attachments/assets/151deef7-b6cd-4dfa-8bde-ede4811e0361)
+
 
 ---
 
@@ -100,3 +104,5 @@ Ensure you have the following installed on your system:
     ```bash
    npm run dev
    ```
+
+All the images and Icons used in this project are fetched from [Flaticon]() and [Pixabay](https://pixabay.com/).
