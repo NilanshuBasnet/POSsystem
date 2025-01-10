@@ -1,5 +1,5 @@
 # React POS Application
-
+Demo: [Click to view](https://pos-system-mauve.vercel.app/)
 ## Overview
 
 This is a simple Point of Sale (POS) system for order management. The application allows users to:  
